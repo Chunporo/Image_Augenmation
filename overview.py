@@ -1,74 +1,44 @@
-import os
-import glob
-
-import numpy as np
-import scipy as sp
-import pandas as pd
-
-from skimage.io import imread, imsave, imshow
-from skimage.transform import rotate, AffineTransform, warp, rescale, resize, downscale_local_mean
-from skimage import color, data
-from skimage.exposure import adjust_gamma
-from skimage.util import random_noise 
-
-#OpenCV-Python
-import cv2
-
-# imgaug
-import imageio
-import imgaug as ia
 import imgaug.augmenters as iaa
+import imageio.v2 as imageio
+import os
+from matplotlib import pyplot as plt
+import cv2
+# Define augmentation sequence
+seq = iaa.Sequential([
+    iaa.Crop(percent=(0, 0.1)), # crop images from each side by 0 to 16px (randomly chosen
+    iaa.Fliplr(p=0.5), # flip the image horizontally
+    iaa.Flipud(p=0.5), # flip the image vertically
+    iaa.Affine(rotate=(-180, 180)), # rotate the image 
+    iaa.GaussianBlur(sigma=(0, 3.0)), # apply gaussian blur with a sigma between 0 and 3.0
+    # Strengthen or weaken the contrast in each image.
+    iaa.LinearContrast((0.75, 1.5)),
+    # Add gaussian noise.
+    # For 50% of all images, we sample the noise once per pixel.
+    # For the other 50% of all images, we sample the noise per pixel AND
+    # channel. This can change the color (not only brightness) of the
+    # pixels.
+    iaa.AdditiveGaussianNoise(loc=0, scale=(0.0, 0.05*255), per_channel=0.5),
+    # Make some images brighter and some darker.
+    # In 20% of all cases, we sample the multiplier once per channel,
+    # which can end up changing the color of the images.
+    iaa.Multiply((0.8, 1.2), per_channel=0.2),
+    # Apply affine transformations to each image.
+    # Scale/zoom them, translate/move them, rotate them and shear them.
+    iaa.AdditiveGaussianNoise(scale=(0, 0.1*255)), # add gaussian noise with a scale between 0 and 0.1*255
+], random_order=True)
 
-# Albumentations
-import albumentations as A
+# Load input image
+input_image = imageio.imread("cat.jpg")
+plt.imshow(input_image)
+plt.show()
+# Create output directory if it doesn't exist
+if not os.path.exists("output"):
+    os.makedirs("output")
 
-# Augmentor
-import Augmentor 
+# Generate 10 augmented images
+for i in range(10):
+    # Apply augmentation sequence to input image
+    output_image = seq(image=input_image)
 
-# Keras
-from keras.preprocessing.image import ImageDataGenerator,array_to_img, img_to_array, load_img 
-
-# SOLT
-import solt
-import solt.transforms as slt
-
-#visualisation
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import seaborn as sns
-from IPython.display import HTML, Image
-
-#source: https://www.kaggle.com/jpmiller/nfl-punt-analytics/edit
-# set additional display options for report
-pd.set_option("display.max_columns", 100)
-th_props = [('font-size', '13px'), ('background-color', 'white'), 
-            ('color', '#666666')]
-td_props = [('font-size', '15px'), ('background-color', 'white')]
-styles = [dict(selector="td", props=td_props), dict(selector="th", 
-            props=th_props)]
-
-#warnings
-import warnings
-warnings.filterwarnings("ignore")
-
-
-#Helper function to display the images in a grid
-# Source: https://stackoverflow.com/questions/42040747/more-idiomatic-way-to-display-images-in-a-grid-with-numpy which was pointed by
-# this excellent article: https://towardsdatascience.com/data-augmentation-for-deep-learning-4fe21d1a4eb9
-def gallery(array, ncols=3):
-    '''
-    Function to arange images into a grid.
-    INPUT:
-        array - numpy array containing images
-        ncols - number of columns in resulting imahe grid
-    OUTPUT:
-        result - reshaped array into a grid with given number of columns
-    '''
-    nindex, height, width, intensity = array.shape
-    nrows = nindex//ncols
-    assert nindex == nrows*ncols
-    result = (array.reshape(nrows, ncols, height, width, intensity)
-              .swapaxes(1,2)
-              .reshape(height*nrows, width*ncols, intensity))
-    return result
-
+    # Save augmented image to output directory
+    cv2.imwrite(f"output/output_image_{i}.jpg", output_image)
