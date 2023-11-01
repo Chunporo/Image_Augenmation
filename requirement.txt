@@ -1,0 +1,334 @@
+absl-py==2.0.0
+aiofiles==23.2.1
+aiohttp==3.8.6
+aiosignal==1.3.1
+aiosqlite @ file:///croot/aiosqlite_1683773899903/work
+albumentations==1.3.1
+alphabet==0.0.8
+altair==5.1.2
+annotated-types==0.6.0
+anyio==4.0.0
+argon2-cffi==23.1.0
+argon2-cffi-bindings==21.2.0
+arrow==1.3.0
+asgiref==3.7.2
+asttokens==2.4.1
+astunparse==1.6.3
+async-lru==2.0.4
+async-timeout==4.0.3
+attrs==23.1.0
+Augmentor==0.2.12
+Babel==2.13.1
+backcall==0.2.0
+beautifulsoup4==4.12.2
+bidict==0.22.1
+bleach==6.1.0
+blinker==1.6.3
+boltons @ file:///work/ci_py311/boltons_1677685195580/work
+brotlipy==0.7.0
+cachetools==5.3.1
+certifi==2023.7.22
+cffi==1.16.0
+chardet==3.0.4
+charset-normalizer==3.3.1
+chex==0.1.83
+click==8.1.7
+comm==0.1.4
+conda @ file:///croot/conda_1696257509808/work
+conda-content-trust @ file:///work/ci_py311/conda-content-trust_1676851327497/work
+conda-libmamba-solver @ file:///croot/conda-libmamba-solver_1696257536937/work/src
+conda-package-handling @ file:///croot/conda-package-handling_1690999929514/work
+conda_package_streaming @ file:///croot/conda-package-streaming_1690987966409/work
+contourpy==1.1.1
+cryptography @ file:///croot/cryptography_1686613057838/work
+cycler==0.12.1
+debugpy==1.8.0
+decorator==5.1.1
+defusedxml==0.7.1
+deprecation==2.1.0
+Django==4.2.6
+dnspython==2.4.2
+entrypoints @ file:///work/ci_py311/entrypoints_1676823319002/work
+etils==1.5.1
+executing==2.0.1
+Faker==19.11.0
+fastapi==0.103.2
+fastapi-socketio==0.0.10
+fastjsonschema==2.18.1
+favicon==0.7.0
+filelock==3.12.4
+filemagic==1.6
+Flask==3.0.0
+flatbuffers==23.5.26
+flax==0.7.4
+fonttools==4.43.1
+fqdn==1.5.1
+frozenlist==1.4.0
+fsspec==2023.9.2
+fuzzywuzzy==0.18.0
+gast==0.4.0
+gitdb==4.0.10
+GitPython==3.1.40
+google-auth==2.23.3
+google-auth-oauthlib==1.0.0
+google-pasta==0.2.0
+google-search-results==2.4.2
+googletrans==3.0.0
+grpcio==1.59.0
+gunicorn==21.2.0
+h11==0.9.0
+h2==3.2.0
+h5py==3.10.0
+hpack==3.0.0
+hstspreload==2023.1.1
+htbuilder==0.6.2
+httpcore==0.9.1
+httptools==0.6.0
+httpx==0.13.3
+hyperframe==5.2.0
+idna==2.10
+imageio==2.31.6
+imgaug==0.4.0
+importlib-metadata==6.8.0
+importlib-resources==6.1.0
+ipykernel==6.26.0
+ipython==8.16.1
+ipython-genutils==0.2.0
+ipywidgets==8.1.1
+iso639==0.1.4
+isoduration==20.11.0
+itsdangerous==2.1.2
+jax==0.4.18
+jaxlib==0.4.18
+jedi==0.19.1
+Jinja2==3.1.2
+joblib==1.3.2
+json5==0.9.14
+jsonpatch @ file:///tmp/build/80754af9/jsonpatch_1615747632069/work
+jsonpointer==2.4
+jsonschema==4.19.1
+jsonschema-specifications==2023.7.1
+jupyter==1.0.0
+jupyter-console==6.6.3
+jupyter-events==0.8.0
+jupyter-lsp==2.2.0
+jupyter-ydoc @ file:///croot/jupyter_ydoc_1683747223142/work
+jupyter_client==8.5.0
+jupyter_core==5.4.0
+jupyter_server==2.9.1
+jupyter_server_fileid @ file:///croot/jupyter_server_fileid_1684273577568/work
+jupyter_server_terminals==0.4.4
+jupyter_server_ydoc @ file:///croot/jupyter_server_ydoc_1686767404829/work
+jupyterlab==4.0.7
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.9
+jupyterlab_server==2.25.0
+keras==2.13.1
+Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
+kickbox==2.0.4
+kiwisolver==1.4.5
+langcodes==3.3.0
+language-data==1.1
+lazy_loader==0.3
+Levenshtein==0.23.0
+libclang==16.0.6
+libmambapy @ file:///croot/mamba-split_1694187754698/work/libmambapy
+lxml @ file:///croot/lxml_1695058164555/work
+marisa-trie==0.7.8
+Markdown==3.5
+markdown-it-py==3.0.0
+markdown2==2.4.10
+markdownlit==0.0.7
+MarkupSafe==2.1.3
+matplotlib==3.8.0
+matplotlib-inline==0.1.6
+mdurl==0.1.2
+mistune==3.0.2
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+ml-dtypes==0.2.0
+more-itertools==10.1.0
+mpmath==1.3.0
+msgpack==1.0.7
+multidict==6.0.4
+nbclassic @ file:///croot/nbclassic_1681756170010/work
+nbclient==0.8.0
+nbconvert==7.9.2
+nbformat==5.9.2
+nest-asyncio==1.5.8
+networkx==3.2
+nicegui==1.3.16
+nltk==3.8.1
+notebook==7.0.6
+notebook_shim==0.2.3
+np-utils==0.6.0
+numpy==1.24.3
+nvidia-cublas-cu12==12.1.3.1
+nvidia-cuda-cupti-cu12==12.1.105
+nvidia-cuda-nvrtc-cu12==12.1.105
+nvidia-cuda-runtime-cu12==12.1.105
+nvidia-cudnn-cu12==8.9.2.26
+nvidia-cufft-cu12==11.0.2.54
+nvidia-curand-cu12==10.3.2.106
+nvidia-cusolver-cu12==11.4.5.107
+nvidia-cusparse-cu12==12.1.0.106
+nvidia-nccl-cu12==2.18.1
+nvidia-nvjitlink-cu12==12.3.52
+nvidia-nvtx-cu12==12.1.105
+oauthlib==3.2.2
+omdb==0.10.1
+opencv-python==4.8.1.78
+opencv-python-headless==4.8.1.78
+opt-einsum==3.3.0
+optax==0.1.7
+orbax-checkpoint==0.4.1
+orjson==3.9.8
+overrides==7.4.0
+packaging==23.2
+pandas==2.1.1
+pandocfilters==1.5.0
+parso==0.8.3
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==10.0.1
+platformdirs==3.11.0
+pluggy @ file:///work/ci_py311/pluggy_1676822818071/work
+ply==3.11
+prometheus-client==0.17.1
+prompt-toolkit==3.0.39
+protobuf==4.24.4
+pscript==0.7.7
+psutil==5.9.6
+ptyprocess==0.7.0
+pure-eval==0.2.2
+pyarrow==13.0.0
+pyasn1==0.5.0
+pyasn1-modules==0.3.0
+pycosat @ file:///croot/pycosat_1696536503704/work
+pycparser==2.21
+pydantic==2.4.2
+pydantic_core==2.10.1
+pydeck==0.8.1b0
+Pygments==2.16.1
+pymdown-extensions==10.3.1
+pymongo==4.5.0
+pyOpenSSL @ file:///croot/pyopenssl_1690223430423/work
+pyparsing==3.1.1
+PyQt5-sip==12.11.0
+pyrsistent @ file:///work/ci_py311/pyrsistent_1676823088752/work
+PySocks @ file:///work/ci_py311/pysocks_1676822712504/work
+python-dateutil==2.8.2
+python-dotenv==1.0.0
+python-engineio==4.7.1
+python-json-logger==2.0.7
+python-Levenshtein==0.23.0
+python-multipart==0.0.6
+python-socketio==5.9.0
+pytz @ file:///croot/pytz_1695131579487/work
+PyYAML==6.0.1
+pyzmq==25.1.1
+qtconsole==5.4.4
+QtPy==2.4.1
+qudida==0.0.4
+rank-bm25==0.2.2
+rapidfuzz==3.4.0
+referencing==0.30.2
+regex==2023.10.3
+requests==2.31.0
+requests-oauthlib==1.3.1
+rfc3339-validator==0.1.4
+rfc3986==1.5.0
+rfc3986-validator==0.1.1
+rich==13.6.0
+rpds-py==0.10.6
+rsa==4.9
+ruamel.yaml @ file:///work/ci_py311/ruamel.yaml_1676838772170/work
+scikit-image==0.22.0
+scikit-learn==1.3.1
+scikit-surprise==1.1.3
+scipy @ file:///croot/scipy_1696543286448/work/dist/scipy-1.11.3-cp311-cp311-linux_x86_64.whl#sha256=f14db5b9e7e3d9de204ef7756f1a1f40f0983293019ed8eacb32191e2f658f9f
+seaborn==0.13.0
+Send2Trash==1.8.2
+serpapi==0.1.4
+shapely==2.0.2
+simple-websocket==1.0.0
+sip @ file:///work/ci_py311/sip_1676825117084/work
+six==1.16.0
+sklearn==0.0.post10
+smmap==5.0.1
+sniffio==1.3.0
+solt==0.1.9
+soupsieve==2.5
+sqlparse==0.4.4
+st-annotated-text==4.0.1
+stack-data==0.6.3
+starlette==0.27.0
+streamlit==1.27.2
+streamlit-camera-input-live==0.2.0
+streamlit-card==0.0.61
+streamlit-embedcode==0.1.2
+streamlit-extras==0.3.4
+streamlit-faker==0.0.2
+streamlit-image-coordinates==0.1.6
+streamlit-keyup==0.2.0
+streamlit-modal==0.1.0
+streamlit-tailwind==0.1.0
+streamlit-toggle-switch==1.0.2
+streamlit-vertical-slider==1.0.2
+surprise==0.1
+sympy==1.12
+tenacity==8.2.3
+tensorboard==2.13.0
+tensorboard-data-server==0.7.1
+tensorflow==2.13.1
+tensorflow-decision-forests==1.6.0
+tensorflow-estimator==2.13.0
+tensorflow-hub==0.15.0
+tensorflow-io-gcs-filesystem==0.34.0
+tensorflowjs==4.11.0
+tensorstore==0.1.45
+termcolor==2.3.0
+terminado==0.17.1
+threadpoolctl==3.2.0
+tifffile==2023.9.26
+tinycss2==1.2.1
+toml @ file:///tmp/build/80754af9/toml_1616166611790/work
+tomli_w==1.0.0
+toolz==0.12.0
+torch==2.1.0
+torchvision==0.16.0
+tornado==6.3.3
+tqdm @ file:///croot/tqdm_1679561862951/work
+traitlets==5.12.0
+triton==2.1.0
+truststore @ file:///croot/truststore_1695244293384/work
+types-python-dateutil==2.8.19.14
+typing_extensions==4.8.0
+tzdata==2023.3
+tzlocal==5.1
+Unidecode==1.3.7
+uri-template==1.3.0
+urllib3==2.0.7
+uvicorn==0.22.0
+uvloop==0.17.0
+validators==0.22.0
+vbuild==0.8.2
+watchdog==3.0.0
+watchfiles==0.20.0
+wcwidth==0.2.8
+webcolors==1.13
+webencodings==0.5.1
+websocket-client==1.6.4
+websockets==11.0.3
+Werkzeug==3.0.0
+widgetsnbextension==4.0.9
+wrapt==1.14.1
+wsproto==1.2.0
+wurlitzer==3.0.3
+y-py @ file:///croot/y-py_1683555143488/work
+yarl==1.9.2
+ypy-websocket @ file:///croot/ypy-websocket_1684171737040/work
+zipp==3.17.0
+zmq==0.0.0
+zstandard @ file:///work/ci_py311_2/zstandard_1679339489613/work
