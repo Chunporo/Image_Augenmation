@@ -3,48 +3,45 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Javalorant Image Augenmation</title>
+  <!--Font Awesome Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-  <h1>Javalorant Image Augenmation</h1> 
-  <div class="container-fluid" style="margin-top:100px;">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3>Image Upload</h3>
-          </div>
-          <div class="panel-body">
-            <form action="">
-              <div class="form-group">
-                <label for="images">Images</label>
-                <input type="file" name="images[]" id="images" multiple class="form-control" required>
-              </div>
-              <div class="form-group">
-                <div id="image_preview" style="width:100%;">
-
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  <div class="container">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" id="file-input" name="file" class="file-input" accept="image/png, image/jpeg"
+        onchange="preview()" multiple>
+      <label for="file-input">
+        <i class="fas fa-upload"></i> &nbsp; Choose A Photo
+      </label>
+      <p id="num-of-files">No Files Chosen</p>
+      <div>
+        <label><input type="checkbox" name="augmentation_method" value="flip"> Flip</label>
+        <label><input type="checkbox" name="augmentation_method" value="crop"> Crop</label>
+        <label><input type="checkbox" name="augmentation_method" value="blur"> Blur</label>
+        <label><input type="checkbox" name="augmentation_method" value="contrast"> Contrast Adjustment</label>
+        <label><input type="checkbox" name="augmentation_method" value="noise"> Add Noise</label>
+        <label><input type="checkbox" name="augmentation_method" value="brightness"> Brightness Scaling</label>
+        <label><input type="checkbox" name="augmentation_method" value="affine"> Affine Transformation</label>
+        <!-- Add more checkboxes as needed -->
       </div>
-    </div>
+      <input type="number" name="num_output_images" min="1" max="50" value="1">
+      <div id="images"></div>
+      <progress id="uploadProgress" value="0" max="100"></progress>
+      <div class="button-container">
+        <input type="submit" value="Upload">
+      </div>
+    </form>
   </div>
+  <!--Script-->
   <script src="{{url_for('static', filename='app.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.js"></script>
 </body>
 
 </html>

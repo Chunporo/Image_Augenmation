@@ -1,41 +1,88 @@
-$(document).ready(function() {
-  var fileArr = [];
-   $("#images").change(function(){
-      // check if fileArr length is greater than 0
-       if (fileArr.length > 0) fileArr = [];
-     
-        $('#image_preview').html("");
-        var total_file = document.getElementById("images").files;
-        if (!total_file.length) return;
-        for (var i = 0; i < total_file.length; i++) {
-          if (total_file[i].size > 1048576) {
-            return false;
-          } else {
-            fileArr.push(total_file[i]);
-            $('#image_preview').append("<div class='img-div' id='img-div"+i+"'><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-responsive image img-thumbnail' title='"+total_file[i].name+"'><div class='middle'><button id='action-icon' value='img-div"+i+"' class='btn btn-danger' role='"+total_file[i].name+"'><i class='fa fa-trash'></i></button></div></div>");
-          }
+let fileInput = document.getElementById("file-input");
+let imageContainer = document.getElementById("images");
+let numOfFiles = document.getElementById("num-of-files");
+let uploadButton = document.querySelector('input[type="submit"]');
+let form = document.querySelector("form");
+
+function preview(){
+    imageContainer.innerHTML = "";
+    numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+
+    for(i of fileInput.files){
+        let reader = new FileReader();
+        let figure = document.createElement("figure");
+        let figCap = document.createElement("figcaption");
+        // figCap.innerText = i.name;
+        figure.appendChild(figCap);
+        reader.onload=()=>{
+            let img = document.createElement("img");
+            img.setAttribute("src",reader.result);
+            figure.insertBefore(img,figCap);
         }
-   });
-  
-  $('body').on('click', '#action-icon', function(evt){
-      var divName = this.value;
-      var fileName = $(this).attr('role');
-      $(`#${divName}`).remove();
-    
-      for (var i = 0; i < fileArr.length; i++) {
-        if (fileArr[i].name === fileName) {
-          fileArr.splice(i, 1);
+        imageContainer.appendChild(figure);
+        reader.readAsDataURL(i);
+    }
+
+}
+fileInput.addEventListener('change', preview);
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the form from refreshing the page
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/upload', true);
+    xhr.send(new FormData(form));
+});
+
+let uploadProgress = document.getElementById('uploadProgress');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the form from refreshing the page
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.upload.onprogress = function(e) {
+        if (e.lengthComputable) {
+            uploadProgress.value = (e.loaded / e.total) * 100;
         }
-      }
-    document.getElementById('images').files = FileListItem(fileArr);
-      evt.preventDefault();
-  });
-  
-   function FileListItem(file) {
-            file = [].slice.call(Array.isArray(file) ? file : arguments)
-            for (var c, b = c = file.length, d = !0; b-- && d;) d = file[b] instanceof File
-            if (!d) throw new TypeError("expected argument to FileList is File or array of File objects")
-            for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(file[c])
-            return b.files
+    };
+
+    xhr.open('POST', '/upload', true);
+    xhr.send(new FormData(form));
+});
+
+fileInput.addEventListener('click', function() {
+    // Reset the progress bar
+    uploadProgress.value = 0;
+});
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the form from refreshing the page
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.upload.onprogress = function(e) {
+        if (e.lengthComputable) {
+            uploadProgress.value = (e.loaded / e.total) * 100;
         }
+    };
+
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            // Reset the progress bar
+            uploadProgress.value = 0;
+            // Download the zip file
+            let a = document.createElement('a');
+            a.href = window.URL.createObjectURL(xhr.response);
+            a.download = 'augmented_images.zip';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+        }
+    };
+
+    xhr.open('POST', '/upload', true);
+    xhr.responseType = 'blob'; // Expect a Blob object in response
+    xhr.send(new FormData(form));
 });
